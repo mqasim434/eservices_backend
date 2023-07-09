@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-MONODB_CONNECTION_STRING = require('../config/index');
+const {MONODB_CONNECTION_STRING} = require('../config/index');
 
 const dbConnect = async () => {
     try{
