@@ -2,67 +2,57 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const educationDetailsSchema = new Schema({
+  userCnic: {
+    type: String,
+    required: true,
+  },
   qualificationLevel: {
     type: String,
-    required: true
   },
   education: {
     type: String,
-    enum: ['complete', 'incomplete'],
-    required: true
   },
   startDate: {
-    type: Date,
-    required: true
+    type: String,
   },
   currentlyEnrolled: {
-    type: Boolean,
-    default: false,
-    required: true
+    type: String,
   },
   expectedEndDate: {
-    type: Date,
-    required: true
+    type: String,
   },
   nameOnDegree: {
     type: String,
-    required: true
   },
   country: {
     type: String,
-    required: true
   },
   degreeAwardInstitute: {
     type: String,
-    required: true
   },
   programTitle: {
     type: String,
-    required: true
   },
   universityName: {
     type: String,
-    required: true
   },
   campus: {
     type: String,
-    required: true
   },
   department: {
     type: String,
-    required: true
   },
-  degreeTitle: {
+  degreeType: {
     type: String,
-    required: true
   },
   sessionType: {
     type: String,
-    required: true
   },
   areaOfResearch: {
     type: String,
-    required: true
+  },
+  rollNo: {
+    type: String,
   }
 },
 {timestamps: true}
@@ -71,3 +61,26 @@ const educationDetailsSchema = new Schema({
 const EducationDetails = mongoose.model('EducationDetails', educationDetailsSchema,'educationDetails');
 
 module.exports = EducationDetails;
+
+
+
+// test data
+// {
+//   "userCnic" : "34201",
+//   "qualificationLevel" : "BS",
+//   "education" : "14 Years",
+//   "startDate" : "12/7/2019",
+//   "currentlyEnrolled" : "Yes",
+//   "expectedEndDate" : "12/9/2023",
+//   "nameOnDegree" : "M Qasim",
+//   "country" : "Pakistan",
+//   "degreeAwardInstitute" : "UOG",
+//   "programTitle" : "BS SE",
+//   "universityName" : "UOG",
+//   "campus" : "Hafiz Hayat",
+//   "department" : "SE",
+//   "degreeType" : "Regular",
+//   "sessionType" : "Evening",
+//   "areaOfResearch" : "Mobile Apps",
+//   "rollNo" : "19014198-092"
+// }

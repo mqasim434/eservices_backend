@@ -1,13 +1,12 @@
-const Joi = require("joi");
 const User = require("../models/user");
-const express = require("express");
 
 
 const authController = {
-  async register(req, res, next) {
+  async register(req, res) {
     const newUser = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
+      fatherName: req.body.fatherName,
       country: req.body.country,
       identityType: req.body.identityType,
       cnic: req.body.cnic,
@@ -50,6 +49,20 @@ const authController = {
       res.status(500).json({ message: 'An error occurred during login' });
     }
   },
+
+  async getUser(req,res){
+    const cnic = req.params.cnic;
+    const user = await User.findOne({cnic});
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    else{
+      res.send(user);
+    }
+    // res.send(cnic);
+  }
 };
+
 
 module.exports = authController;

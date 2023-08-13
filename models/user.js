@@ -4,42 +4,78 @@ const userSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true,
+      default: 'null',
     },
     lastName: {
       type: String,
-      required: true,
+      default: 'null',
+    },
+    fatherName: {
+      type: String,
+      default: 'null',
     },
     country: {
       type: String,
-      required: true,
+      default: 'null',
     },
     identityType: {
       type: String,
-      required: true,
+      default: 'null',
     },
     cnic: {
       type: String,
       unique: true,
-      required: true,
+      default: 'null',
     },
     phoneNo: {
       type: String,
       unique: true,
-      required: true,
+      default: 'null',
     },
     email: {
       type: String,
-      required: true,
       unique: true,
+      default: 'null',
+    },
+    maritalStatus: {
+      type: String,
+      default: 'null',
+    },
+    gender: {
+      type: String,
+      default: 'null',
     },
     password: {
       type: String,
-      required: true,
+      default: 'null',
     },
     confirmPassword: {
       type: String,
-      require: true,
+      default: 'null',
+    },
+    dateOfBirth: {
+      type: String,
+      default: '00/00/0000',
+    },
+    address: {
+      type: String,
+      default: 'null',
+    },
+    city: {
+      type: String,
+      default: 'null',
+    },
+    district: {
+      type: String,
+      defaul: 'null',
+    },
+    postalCode: {
+      type: String,
+      default: 'null',
+    },
+    imageUrl: {
+      type: String,
+      default: 'null',
     },
   },
   { timestamps: true }
