@@ -1,6 +1,5 @@
 const User = require("../models/user");
 
-
 const authController = {
   async register(req, res) {
     const newUser = new User({
@@ -8,7 +7,6 @@ const authController = {
       lastName: req.body.lastName,
       fatherName: req.body.fatherName,
       country: req.body.country,
-      identityType: req.body.identityType,
       cnic: req.body.cnic,
       phoneNo: req.body.phoneNo,
       email: req.body.email,

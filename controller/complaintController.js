@@ -15,10 +15,20 @@ const complaintController = {
           await newComplaint.save();
           res.json({ message: "New Complaint Added" });
     },
+
+
     async getComplaints(req,res){
-        const complaints = await Complaint.find();
-    res.json(complaints);
-    }
+        const cnic = req.params.cnic;
+        const complaints = await Complaint.find({cnic});
+    
+        if (!complaints || complaints.length==0) {
+          return res.status(404).json({ message: 'Complaint not found' });
+        }
+        else{
+          res.send(complaints);
+        }
+        // res.send(cnic);
+      }
 };
 
 module.exports = complaintController;

@@ -18,10 +18,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: 'null',
     },
-    identityType: {
-      type: String,
-      default: 'null',
-    },
     cnic: {
       type: String,
       unique: true,
