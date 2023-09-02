@@ -1,17 +1,22 @@
+const { number } = require('joi');
 const mongoose = require('mongoose');
 
 
-const documentSchema = new mongoose.Schema({
-  name: String,
-  fileURL: String,
-});
+// const documentSchema = new mongoose.Schema({
+//   name: String,
+//   fileURL: String,
+// });
 
-const degreeSchema = new mongoose.Schema({
-  degreeName: String,
-  documents: [documentSchema], // Array of documents for each degree
-});
+// const degreeSchema = new mongoose.Schema({
+//   degreeName: String,
+//   documents: [documentSchema], // Array of documents for each degree
+// });
 
-const userSchema = new mongoose.Schema({
+const applicationSchema = new mongoose.Schema({
+  userCnic: {
+    type: String,
+    required: true,
+  },
   attestationMode: {
     type: String,
     required: true,
@@ -32,10 +37,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  degrees: [degreeSchema], // Array of degrees
+  cnicFront: {
+    type: String,
+    required: true,
+  },
+  cnicBack: {
+    type: String,
+    required: true,
+  }
+  // degrees: [degreeSchema], // Array of degrees
 });
 
 // Create the User model using the schema
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("Application", applicationSchema, "applications");
 
 module.exports = User;

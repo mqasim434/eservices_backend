@@ -23,8 +23,6 @@ const updateUserData = {
         });
       }
 
-
-      
     } catch (error) {
       console.error("Error updating user:", error.message);
       return res.status(500).json({ message: "Error updating user" });
