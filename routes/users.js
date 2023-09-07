@@ -17,6 +17,8 @@ router.post('/login',authController.login);
 
 router.patch('/update/:cnic',userDataController.updateData);
 
+router.patch('/updatePassword/:email',userDataController.updatePassword);
+
 router.post('/addEducationData',educationalDataController.addEducationData);
 
 router.get('/getEducationData/:cnic',educationalDataController.getEducationData);
